@@ -104,18 +104,105 @@ function a11yProps(index) {
 
 // techStacks tetap sama
 const techStacks = [
-  { icon: "html.svg", language: "HTML" },
-  { icon: "css.svg", language: "CSS" },
-  { icon: "javascript.svg", language: "JavaScript" },
-  { icon: "tailwind.svg", language: "Tailwind CSS" },
-  { icon: "reactjs.svg", language: "ReactJS" },
-  { icon: "vite.svg", language: "Vite" },
-  { icon: "nodejs.svg", language: "Node JS" },
-  { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "firebase.svg", language: "Firebase" },
-  { icon: "MUI.svg", language: "Material UI" },
-  { icon: "vercel.svg", language: "Vercel" },
-  { icon: "SweetAlert.svg", language: "SweetAlert2" },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    language: "HTML5",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    language: "CSS3",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    language: "JavaScript",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    language: "ReactJS",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+    language: "Tailwind CSS",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg",
+    language: "Vite",
+  },
+
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+    language: "Node.js",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    language: "Express.js",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    language: "Python",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+    language: "Django",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    language: "MongoDB",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    language: "MySQL",
+  },
+
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+    language: "Supabase",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    language: "Git",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    language: "GitHub",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg",
+    language: "Postman",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+    language: "Linux",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+    language: "Figma",
+  },
+
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    language: "AWS",
+  },
+  {
+    icon: "https://upload.wikimedia.org/wikipedia/commons/5/57/ServiceNow_logo.svg",
+    language: "ServiceNow",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/salesforce/salesforce-original.svg",
+    language: "Salesforce",
+  },
+  {
+    icon: "https://cdn.simpleicons.org/scikitlearn",
+    language: "Scikit-learn",
+  },
+  {
+    icon: "https://cdn.simpleicons.org/pandas",
+    language: "Pandas",
+  },
+  {
+    icon: "https://cdn.simpleicons.org/huggingface",
+    language: "BERT",
+  },
 ];
 
 export default function FullWidthTabs() {
@@ -136,35 +223,39 @@ export default function FullWidthTabs() {
 
 
   const fetchData = useCallback(async () => {
-    try {
-      // Mengambil data dari Supabase secara paralel
-      const [projectsResponse, certificatesResponse] = await Promise.all([
-        supabase.from("projects").select("*").order('id', { ascending: false }),
-        supabase.from("certificates").select("*").order('id', { ascending: false }), 
-      ]);
 
-      // Error handling untuk setiap request
-      if (projectsResponse.error) throw projectsResponse.error;
-      if (certificatesResponse.error) throw certificatesResponse.error;
+  if (!supabase) {
+    console.log("Supabase not configured");
+    return;
+  }
 
-      // Supabase mengembalikan data dalam properti 'data'
-      const projectData = projectsResponse.data || [];
-      const certificateData = certificatesResponse.data || [];
+  try {
 
-      setProjects(projectData);
-      setCertificates(certificateData);
+    const [projectsResponse, certificatesResponse] = await Promise.all([
+      supabase.from("projects").select("*").order('id', { ascending: false }),
+      supabase.from("certificates").select("*").order('id', { ascending: false }),
+    ]);
 
-      // Store in localStorage (fungsionalitas ini tetap dipertahankan)
-      localStorage.setItem("projects", JSON.stringify(projectData));
-      localStorage.setItem("certificates", JSON.stringify(certificateData));
-      
-      // Dispatch custom event to notify other components (like About)
-      window.dispatchEvent(new Event("portfolioDataUpdated"));
-    } catch (error) {
-      console.error("Error fetching data from Supabase:", error.message);
-    }
-  }, []);
+    if (projectsResponse.error) throw projectsResponse.error;
+    if (certificatesResponse.error) throw certificatesResponse.error;
 
+    setProjects(projectsResponse.data || []);
+    setCertificates(certificatesResponse.data || []);
+    console.log(certificatesResponse.data);
+
+    const { data, error } = await supabase
+  .from("certificates")
+  .select("*");
+
+  console.log("DATA =", data);
+  console.log("ERROR =", error);
+
+  }
+  catch(error){
+    console.log(error);
+  }
+
+},[]);
 
 
   useEffect(() => {

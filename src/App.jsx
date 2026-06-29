@@ -38,7 +38,7 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
           <About />
           <Suspense fallback={<div className="h-20" />}>
             <Portofolio />
-            <ContactPage />
+            <ContactPage /> 
           </Suspense>
           <Footer />
         </>

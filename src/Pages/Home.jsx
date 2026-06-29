@@ -76,12 +76,20 @@ const SocialLink = memo(({ icon: Icon, link, label }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["Network & Telecom Student", "Tech Enthusiast"];
-const TECH_STACK = ["React", "Javascript", "Node.js", "Tailwind"];
+const WORDS = [  "Software Developer",
+  "Frontend Developer",
+  "Web Designer",
+  "UI/UX Designer"];
+const TECH_STACK = [
+  "Next.js",
+  "TypeScript",
+  "Tailwind CSS",
+  "Supabase"
+];
 const SOCIAL_LINKS = [
-  { icon: Github, link: "https://github.com/EkiZR", label: "GitHub Profile" },
-  { icon: Linkedin, link: "https://www.linkedin.com/in/ekizr/", label: "LinkedIn Profile" },
-  { icon: Instagram, link: "https://www.instagram.com/ekizr_/?hl=id", label: "Instagram Profile" }
+  { icon: Github, link: "https://github.com/Gani-ctrl", label: "GitHub Profile" },
+  { icon: Linkedin, link: "https://www.linkedin.com/in/tirumala-ganesh-dasari-648512297/", label: "LinkedIn Profile" },
+  { icon: Instagram, link: "https://www.instagram.com/__ganesh_0418_?igsh=bjNlNTQxYm95M3h4", label: "Instagram Profile" }
 ];
 
 const Home = () => {
@@ -140,13 +148,13 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Eki Zulfar Rachman — Frontend Web Developer</title>
+        <title>Dasari Tirumala Ganesh — Frontend Web Developer</title>
         <meta name="description" content="Website resmi Eki Zulfar Rachman, Front-End Web Developer. Saya berfokus pada penciptaan pengalaman digital yang menarik dan selalu berupaya memberikan solusi terbaik dalam setiap proyek yang saya kerjakan." />
      <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://ekizr.com" />
+        <link rel="canonical" href="https://Ganesh.com" />
         <meta property="og:title" content="Eki Zulfar Rachman — Frontend Web Developer" />
      <meta property="og:description" content="Website resmi dan portofolio Eki Zulfar Rachman, Front-End Web Developer." />
-        <meta property="og:url" content="https://ekizr.com" />
+        <meta property="og:url" content="https://Ganesh.com" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{`
           {
@@ -154,11 +162,11 @@ const Home = () => {
             "@type": "Person",
             "name": "Eki Zulfar Rachman",
             "jobTitle": "Frontend Developer",
-            "url": "https://ekizr.com",
+            "url": "https://Ganesh.com",
             "sameAs": [
-              "https://github.com/EkiZR",
-              "https://www.linkedin.com/in/ekizr/",
-              "https://www.instagram.com/ekizr_/"
+              "https://github.com/Gani-ctrl",
+              "https://www.linkedin.com/in/tirumala-ganesh-dasari-648512297/",
+              "https://www.instagram.com/__ganesh_0418_?igsh=bjNlNTQxYm95M3h4"
             ]
           }
         `}</script>

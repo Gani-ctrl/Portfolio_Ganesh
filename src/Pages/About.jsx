@@ -2,6 +2,7 @@ import React, { useEffect, useState, memo, useMemo } from "react"
 import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { supabase } from "../supabase";
 
 // Memoized Components
 const Header = memo(() => (
@@ -21,7 +22,7 @@ const Header = memo(() => (
       data-aos-duration="800"
     >
       <Sparkles className="w-5 h-5 text-purple-400" />
-      Transforming ideas into digital experiences
+     Crafting modern web experiences through clean code, thoughtful design, and user-centered solutions
       <Sparkles className="w-5 h-5 text-purple-400" />
     </p>
   </div>
@@ -120,33 +121,36 @@ const AboutPage = () => {
     YearExperience: 0,
   });
 
-  useEffect(() => {
-    const updateStats = () => {
-      const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
-      const storedCertificates = JSON.parse(localStorage.getItem("certificates") || "[]");
-      
-      const startDate = new Date("2021-11-06");
-      const today = new Date();
-      const experience = today.getFullYear() - startDate.getFullYear() -
-        (today < new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate()) ? 1 : 0);
+useEffect(() => {
+  const updateStats = async () => {
+    const startDate = new Date("2024-06-01");
+    const today = new Date();
 
-      setStats({
-        totalProjects: storedProjects.length,
-        totalCertificates: storedCertificates.length,
-        YearExperience: experience
-      });
-    };
+    const experience =
+      today.getFullYear() -
+      startDate.getFullYear() -
+      (today <
+      new Date(today.getFullYear(), startDate.getMonth(), startDate.getDate())
+        ? 1
+        : 0);
 
-    updateStats();
+    const { count: projectCount } = await supabase
+      .from("projects")
+      .select("*", { count: "exact", head: true });
 
-    window.addEventListener('storage', updateStats);
-    window.addEventListener('portfolioDataUpdated', updateStats);
+    const { count: certificateCount } = await supabase
+      .from("certificates")
+      .select("*", { count: "exact", head: true });
 
-    return () => {
-      window.removeEventListener('storage', updateStats);
-      window.removeEventListener('portfolioDataUpdated', updateStats);
-    };
-  }, []);
+    setStats({
+      totalProjects: projectCount || 0,
+      totalCertificates: certificateCount || 0,
+      YearExperience: experience,
+    });
+  };
+
+  updateStats();
+}, []);
 
   const { totalProjects, totalCertificates, YearExperience } = stats;
 
@@ -196,7 +200,7 @@ const AboutPage = () => {
       icon: Globe,
       color: "from-[#6366f1] to-[#a855f7]",
       value: YearExperience,
-      label: "Years of Experience",
+      label: "Internship Experience",
       description: "Continuous learning journey",
       animation: "fade-left",
     },
@@ -229,7 +233,7 @@ const AboutPage = () => {
                 data-aos-duration="1300"
                 itemProp="name"
               >
-                Eki Zulfar Rachman
+                Dasari Tirumala Ganesh
               </span>
             </h2>
             
@@ -238,9 +242,8 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-        Saya adalah mahasiswa Teknik Informatika yang berfokus pada pengembangan Front-End. 
-Saya berfokus pada penciptaan pengalaman digital yang menarik dan selalu berupaya memberikan solusi terbaik dalam setiap proyek yang saya kerjakan.
-                  </p>
+          Skilled in designing and developing modern web applications, interactive user interfaces, and scalable software solutions.
+          Driven by innovation and attention to detail, aiming to create seamless digital experiences that are both functional and aesthetically appealing   </p>
 
                {/* Quote Section */}
       <div 
@@ -260,18 +263,18 @@ Saya berfokus pada penciptaan pengalaman digital yang menarik dan selalu berupay
         </div>
         
         <blockquote className="text-gray-300 text-center lg:text-left italic font-medium text-sm relative z-10 pl-6">
-          "Leveraging AI as a professional tool, not a replacement."
+          "Building digital experiences where design meets functionality"
         </blockquote>
       </div>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://drive.google.com/drive/folders/1BOm51Grsabb3zj6Xk27K-iRwI1zITcpo" className="w-full lg:w-auto">
+              <a href="https://drive.google.com/drive/folders/1Ww0_xhcxYiw6e8xoAik4tJ8Bt2gu3rFS?usp=sharing" className="w-full lg:w-auto">
               <button 
                 data-aos="fade-up"
                 data-aos-duration="800"
                 className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl "
               >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download Resume
               </button>
               </a>
               <a href="#Portofolio" className="w-full lg:w-auto">

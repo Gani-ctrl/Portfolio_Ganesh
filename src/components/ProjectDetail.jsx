@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import Swal from "sweetalert2";
 import { toSlug } from "../utils/slug";
+import { supabase } from "../supabase";
 
 const TECH_ICONS = {
   React: Globe,
@@ -77,7 +78,7 @@ const ProjectStats = ({ project }) => {
             {techStackCount}
           </div>
           <div className="text-[10px] md:text-xs text-gray-400">
-            Total Teknologi
+            Tech Stack
           </div>
         </div>
       </div>
@@ -94,7 +95,7 @@ const ProjectStats = ({ project }) => {
             {featuresCount}
           </div>
           <div className="text-[10px] md:text-xs text-gray-400">
-            Fitur Utama
+            Key Features
           </div>
         </div>
       </div>
@@ -125,23 +126,41 @@ const ProjectDetails = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    const storedProjects = JSON.parse(localStorage.getItem("projects")) || [];
-    // Cari project berdasarkan slug yang di-generate dari Title
-    const selectedProject = storedProjects.find(
-      (p) => toSlug(p.Title) === slug,
+  window.scrollTo(0, 0);
+
+  const fetchProject = async () => {
+    const { data, error } = await supabase
+      .from("projects")
+      .select("*");
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    const selectedProject = data.find(
+      (p) => toSlug(p.Title) === slug
     );
 
     if (selectedProject) {
-      const enhancedProject = {
+      setProject({
         ...selectedProject,
         Features: selectedProject.Features || [],
         TechStack: selectedProject.TechStack || [],
-        Github: selectedProject.Github || "https://github.com/EkiZR",
-      };
-      setProject(enhancedProject);
+      });
     }
-  }, [slug]);
+    console.log("Slug =", slug);
+    console.log("Projects =", data);
+    console.log(
+      data.map((p) => ({
+        title: p.Title,
+        slug: toSlug(p.Title),
+      }))
+    );
+  };
+
+  fetchProject();
+}, [slug]);
 
   if (!project) {
     return (
@@ -156,25 +175,25 @@ const ProjectDetails = () => {
     );
   }
 
-  const projectUrl = `https://ekizr.com/project/${toSlug(project.Title)}`;
+  const projectUrl = `https://Ganesh.com/project/${toSlug(project.Title)}`;
 
   return (
     <>
       <Helmet>
-        <title>{project.Title} — Eki Zulfar Rachman</title>
+        <title>{project.Title} — Dasari Tirumala Ganesh</title>
         <meta
           name="description"
           content={
             project.Description
               ? project.Description.slice(0, 155)
-              : `Project ${project.Title} oleh Eki Zulfar Rachman — Frontend Web Developer.`
+              : `Project ${project.Title} Dasari Tirumala Ganesh — Frontend Web Developer.`
           }
         />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href={projectUrl} />
         <meta
           property="og:title"
-          content={`${project.Title} — Eki Zulfar Rachman`}
+          content={`${project.Title} — Dasari Tirumala Ganesh`}
         />
         <meta
           property="og:description"
@@ -192,8 +211,8 @@ const ProjectDetails = () => {
             "url": "${projectUrl}",
             "author": {
               "@type": "Person",
-              "name": "Eki Zulfar Rachman",
-              "url": "https://ekizr.com"
+              "name": "Dasari Tirumala Ganesh",
+              "url": "https://Ganesh.com"
             }
           }
         `}</script>
