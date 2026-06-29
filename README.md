@@ -2,9 +2,9 @@
 
 Hello everyone\! 👋
 
-Let me introduce myself, I'm **Eki Zulfar Rachman**. On this occasion, I'd like to share the portfolio website project that I've developed. built with React and Supabase, featuring a public-facing site and an admin dashboard.
+Let me introduce myself, I'm **Dasari Tirumala Ganesh**. On this occasion, I'd like to share the portfolio website project that I've developed. built with React and Supabase, featuring a public-facing site and an admin dashboard.
 
-**Live Demo:** [https://ekizr.com](https://ekizr.com)
+**Live Demo:** [https://Ganesh.com](https://Ganesh.com)
 
 ---
 
@@ -42,8 +42,8 @@ This project is built using modern web technologies:
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/EkiZR/Portofolio_V5.git
-cd Portofolio_V5
+git clone https://github.com/Gani-ctrl/Portfolio_Ganesh
+cd Portfolio_Ganesh
 npm install
 ```
 
@@ -311,7 +311,7 @@ Upload the contents of the `dist/` folder to your hosting provider.
 
 ## Credits & Contact
 
-**Eki Zulfar Rachman**  
+**Dasari Tirumala Ganesh**  
 Website: [eki.my.id](https://ekizr.com) · GitHub: [EkiZR](https://github.com/EkiZR)
 
 Thanks to [LottieFiles](https://lottiefiles.com/free-animation/coding-NWhbxMOVgP) and Claude.

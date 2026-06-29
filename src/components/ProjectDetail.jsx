@@ -107,10 +107,10 @@ const handleGithubClick = (githubLink) => {
   if (githubLink === "Private") {
     Swal.fire({
       icon: "info",
-      title: "Source Code Private",
-      text: "Maaf, source code untuk proyek ini bersifat privat.",
-      confirmButtonText: "Mengerti",
-      confirmButtonColor: "#3085d6",
+      title: "Private Repository",
+      text: "The source code for this project is private and is not publicly available.",
+      confirmButtonText: "OK",
+      confirmButtonColor: "#6366f1",
       background: "#030014",
       color: "#ffffff",
     });

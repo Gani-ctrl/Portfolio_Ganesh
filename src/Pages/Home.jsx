@@ -148,29 +148,52 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Dasari Tirumala Ganesh — Frontend Web Developer</title>
-        <meta name="description" content="Website resmi Eki Zulfar Rachman, Front-End Web Developer. Saya berfokus pada penciptaan pengalaman digital yang menarik dan selalu berupaya memberikan solusi terbaik dalam setiap proyek yang saya kerjakan." />
-     <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://Ganesh.com" />
-        <meta property="og:title" content="Eki Zulfar Rachman — Frontend Web Developer" />
-     <meta property="og:description" content="Website resmi dan portofolio Eki Zulfar Rachman, Front-End Web Developer." />
-        <meta property="og:url" content="https://Ganesh.com" />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">{`
-          {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Eki Zulfar Rachman",
-            "jobTitle": "Frontend Developer",
-            "url": "https://Ganesh.com",
-            "sameAs": [
-              "https://github.com/Gani-ctrl",
-              "https://www.linkedin.com/in/tirumala-ganesh-dasari-648512297/",
-              "https://www.instagram.com/__ganesh_0418_?igsh=bjNlNTQxYm95M3h4"
-            ]
-          }
-        `}</script>
-      </Helmet>
+  <title>Dasari Tirumala Ganesh | Software Developer & Front-End Web Developer</title>
+
+  <meta
+    name="description"
+    content="Official portfolio of Dasari Tirumala Ganesh, a Software Developer and Front-End Web Developer specializing in React.js, JavaScript, Tailwind CSS, Node.js, and AI-powered web applications. Explore my projects, skills, and professional experience."
+  />
+
+  <meta name="robots" content="index, follow" />
+
+  <link
+    rel="canonical"
+    href="https://portfolio-ganesh-two.vercel.app/"
+  />
+
+  <meta
+    property="og:title"
+    content="Dasari Tirumala Ganesh | Software Developer"
+  />
+
+  <meta
+    property="og:description"
+    content="Official portfolio of Dasari Tirumala Ganesh showcasing projects, skills, certifications, and experience."
+  />
+
+  <meta
+    property="og:url"
+    content="https://portfolio-ganesh-two.vercel.app/"
+  />
+
+  <meta property="og:type" content="website" />
+
+  <script type="application/ld+json">{`
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dasari Tirumala Ganesh",
+      "jobTitle": "Software Developer",
+      "url": "https://portfolio-ganesh-two.vercel.app/",
+      "sameAs": [
+        "https://github.com/Gani-ctrl",
+        "https://www.linkedin.com/in/tirumala-ganesh-dasari-648512297/",
+        "https://www.instagram.com/__ganesh_0418_?igsh=bjNlNTQxYm95M3h4"
+      ]
+    }
+  `}</script>
+</Helmet>
 
       <div className="min-h-screen bg-[#030014] overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%]" id="Home">
         <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
