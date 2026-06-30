@@ -18,9 +18,9 @@ export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const handleLogout = async () => {
-    await supabase.auth.signOut()
-    navigate('/login')
-  }
+    await supabase.auth.signOut();
+    navigate("/", { replace: true });
+  };
 
   const SidebarContent = () => (
     <div className="flex flex-col h-full p-5 gap-6">
@@ -67,6 +67,28 @@ export default function Dashboard() {
           )
         })}
       </nav>
+
+        {/* Back to Portfolio */}
+      <button
+        onClick={() => navigate("/")}
+        className="shrink-0 flex items-center gap-3 px-3 py-2.5 rounded-xl text-gray-400 hover:text-indigo-300 hover:bg-indigo-500/5 border border-transparent hover:border-indigo-500/20 transition-all duration-200 text-sm"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-4 h-4 shrink-0"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+        Back to Portfolio
+      </button>
 
       {/* Logout */}
       <button

@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
+    const navigate = useNavigate();
+
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState("Home");
+    const [logoClicks, setLogoClicks] = useState(0);
+    const clickTimer = useRef(null);
     
     const navItems = [
         { href: "#Home", label: "Home" },
@@ -65,6 +70,39 @@ const Navbar = () => {
         setIsOpen(false);
     };
 
+    useEffect(() => {
+    return () => {
+        if (clickTimer.current) {
+            clearTimeout(clickTimer.current);
+        }
+    };
+}, []);
+
+    const handleLogoClick = (e) => {
+    e.preventDefault();
+
+    if (clickTimer.current) {
+        clearTimeout(clickTimer.current);
+    }
+
+    setLogoClicks((prev) => {
+        const count = prev + 1;
+
+        if (count >= 5) {
+            navigate("/login");
+            return 0;
+        }
+
+        scrollToSection(e, "#Home");
+
+        clickTimer.current = setTimeout(() => {
+            setLogoClicks(0);
+        }, 2000);
+
+        return count;
+    });
+};
+
     return (
         <nav
             className={`fixed w-full top-0 z-50 transition-all duration-500 ${
@@ -81,7 +119,7 @@ const Navbar = () => {
                     <div className="flex-shrink-0">
                         <a
                             href="#Home"
-                            onClick={(e) => scrollToSection(e, "#Home")}
+                            onClick={handleLogoClick}
                             className="text-xl font-bold bg-gradient-to-r from-[#a855f7] to-[#6366f1] bg-clip-text text-transparent"
                         >
                             G@nesh
