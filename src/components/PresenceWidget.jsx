@@ -151,7 +151,7 @@ export default function PresenceWidget() {
                       )}
                     </div>
                     
-                    {/* Music bars - hanya Spotify */}
+                    {/* Music bars - Spotify only  */}
                     {act.type === "spotify" && (
                       <div className="absolute -bottom-0.5 -right-0.5 bg-green-500 rounded p-0.5 shadow-lg">
                         <div className="flex items-end gap-0.5 h-2">

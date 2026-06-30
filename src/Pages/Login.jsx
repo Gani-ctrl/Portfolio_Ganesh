@@ -20,7 +20,7 @@ export default function Login() {
       .from('profiles').select('role').eq('id', data.user.id).single()
 
     if (profile?.role !== 'admin') {
-      alert('Access denied')
+      alert('You are not authorized to access the admin panel.')
       await supabase.auth.signOut()
       setLoading(false)
       return
@@ -42,7 +42,7 @@ export default function Login() {
                 <span className="text-indigo-300 text-xs font-medium">Admin Portal</span>
               </div>
               <h1 className="text-3xl font-bold text-white">Welcome Back</h1>
-              <p className="text-gray-400 text-sm">Sign in to manage your portfolio</p>
+              <p className="text-gray-400 text-sm">Sign in to access your portfolio dashboard.</p>
             </div>
 
             {/* Form */}
@@ -53,7 +53,7 @@ export default function Login() {
                   <Mail className="w-4 h-4 text-gray-500 ml-4 shrink-0" />
                   <input
                     type="email"
-                    placeholder="admin@example.com"
+                    placeholder="tirumalaganeshd@gmail.com"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     required

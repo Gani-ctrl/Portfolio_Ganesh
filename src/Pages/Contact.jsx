@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Share2, User, Mail, MessageSquare, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import SocialLinks from "../components/SocialLinks";
-import Komentar from "../components/Commentar";
+import Comments from "../components/Commentar";
 import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -44,17 +44,17 @@ const ContactPage = () => {
     });
 
     try {
-      // Ganti dengan email Anda di FormSubmit
+      // Replace with your FormSubmit email
       const formSubmitUrl = 'https://formsubmit.co/dasaritirumalaganesh9@gmail.com';
       
-      // Siapkan data form untuk FormSubmit
+      // Prepare form data for FormSubmit
       const submitData = new FormData();
       submitData.append('name', formData.name);
       submitData.append('email', formData.email);
       submitData.append('message', formData.message);
-      submitData.append('_subject', 'P_subject', 'New Portfolio Message');
-      submitData.append('_captcha', 'false'); // Nonaktifkan captcha
-      submitData.append('_template', 'table'); // Format email sebagai tabel
+      submitData.append('_subject', 'New Portfolio Message');
+      submitData.append('_captcha', 'false'); // Disable captcha
+      submitData.append('_template', 'table'); // Format email as a table
 
       await axios.post(formSubmitUrl, submitData, {
         headers: {
@@ -230,7 +230,7 @@ const ContactPage = () => {
           </div>
 
           <div className="  bg-white/5 backdrop-blur-xl rounded-3xl p-3 py-3 md:p-10 md:py-8 shadow-2xl transform transition-all duration-500 hover:shadow-[#6366f1]/10">
-             <Komentar />
+             <Comments />
           </div>
         </div>
       </div>

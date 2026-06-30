@@ -24,7 +24,7 @@ const TECH_ICONS = {
   Tailwind: Layout,
   Express: Cpu,
   Python: Code,
-  Javascript: Code,
+  JavaScript: Code,
   HTML: Code,
   CSS: Code,
   default: Package,
@@ -175,7 +175,7 @@ const ProjectDetails = () => {
     );
   }
 
-  const projectUrl = `https://Ganesh.com/project/${toSlug(project.Title)}`;
+  const projectUrl = `https://Ganesh.dev/project/${toSlug(project.Title)}`;
 
   return (
     <>
@@ -212,7 +212,7 @@ const ProjectDetails = () => {
             "author": {
               "@type": "Person",
               "name": "Dasari Tirumala Ganesh",
-              "url": "https://Ganesh.com"
+              "url": "https://Ganesh.dev"
             }
           }
         `}</script>
@@ -288,7 +288,7 @@ const ProjectDetails = () => {
                   >
                     <div className="absolute inset-0 translate-y-[100%] bg-gradient-to-r from-purple-600/10 to-pink-600/10 transition-transform duration-300 group-hover:translate-y-[0%]" />
                     <Github className="relative w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform" />
-                    <span className="relative font-medium">Github</span>
+                    <span className="relative font-medium">GitHub</span>
                   </a>
                 </div>
 

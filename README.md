@@ -1,10 +1,10 @@
-# Portfolio V5
+# Ganesh Portfolio
 
-Hello everyone\! 👋
+Hello! 👋
 
-Let me introduce myself, I'm **Dasari Tirumala Ganesh**. On this occasion, I'd like to share the portfolio website project that I've developed. built with React and Supabase, featuring a public-facing site and an admin dashboard.
+I'm **Dasari Tirumala Ganesh**, a Software Developer and Frontend Developer. This repository contains the source code for my personal portfolio website built with React and Supabase.
 
-**Live Demo:** [https://Ganesh.com](https://Ganesh.com)
+**Live Demo:** [https://Ganesh.dev](https://Ganesh.dev)
 
 ---
 
@@ -245,9 +245,9 @@ INSERT INTO public.portfolio_comments (
   created_at
 )
 SELECT
-  'developed by ekizr. This project is open-source and free to use.',
-  'ekizr',
-  'https://egwzigagwyrmwjsrebzx.supabase.co/storage/v1/object/public/profile-images/profile-images/1771939421615_xx2q8hgya6e.jpeg',
+  'Developed by Dasari Tirumala Ganesh. Thank you for visiting my portfolio.',
+  'ganesh',
+  'https://supabase.com/dashboard/project/gglhdkdcidqbplyeqiun/storage/files/buckets/project-images',
   true,
   now()
 WHERE NOT EXISTS (
@@ -269,7 +269,7 @@ Go to **Table Editor → portfolio_comments → Enable Realtime**.
 
 ```sql
 INSERT INTO public.profiles (id, username, role)
-VALUES ('USER_UUID', 'eki', 'admin');
+VALUES ('USER_UUID', 'ganesh', 'admin');
 ```
 
 ### 7. Run Locally
@@ -312,7 +312,7 @@ Upload the contents of the `dist/` folder to your hosting provider.
 ## Credits & Contact
 
 **Dasari Tirumala Ganesh**  
-Website: [eki.my.id](https://ekizr.com) · GitHub: [EkiZR](https://github.com/EkiZR)
+Website: https://portfolio-ganesh-two.vercel.app · GitHub: https://github.com/Gani-ctrl
 
 Thanks to [LottieFiles](https://lottiefiles.com/free-animation/coding-NWhbxMOVgP) and Claude.
 

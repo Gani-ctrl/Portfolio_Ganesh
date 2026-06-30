@@ -102,7 +102,7 @@ function a11yProps(index) {
   };
 }
 
-// techStacks tetap sama
+// Tech stack remains the same
 const techStacks = [
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
@@ -259,7 +259,7 @@ export default function FullWidthTabs() {
 
 
   useEffect(() => {
-    // Coba ambil dari localStorage dulu untuk laod lebih cepat
+    // Try loading data from localStorage first for faster rendering
     const cachedProjects = localStorage.getItem('projects');
     const cachedCertificates = localStorage.getItem('certificates');
 
@@ -268,7 +268,7 @@ export default function FullWidthTabs() {
         setCertificates(JSON.parse(cachedCertificates));
     }
     
-    fetchData(); // Tetap panggil fetchData untuk sinkronisasi data terbaru
+    fetchData(); // Always fetch the latest data to keep everything in sync
   }, [fetchData]);
 
   const handleChange = (event, newValue) => {
@@ -286,9 +286,9 @@ export default function FullWidthTabs() {
   const displayedProjects = showAllProjects ? projects : projects.slice(0, initialItems);
   const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, initialItems);
 
-  // Sisa dari komponen (return statement) tidak ada perubahan
+  // The rest of the component (return statement) remains unchanged
   return (
-    <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portofolio">
+    <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portfolio">
       {/* Header section - unchanged */}
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
         <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
@@ -439,7 +439,7 @@ export default function FullWidthTabs() {
                     data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
-                    <Certificate ImgSertif={certificate.Img} />
+                    <Certificate certificateImage={certificate.Img} />
                   </div>
                 ))}
               </div>

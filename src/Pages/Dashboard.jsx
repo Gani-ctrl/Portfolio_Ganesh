@@ -80,8 +80,8 @@ export default function Dashboard() {
   )
 
   return (
-    // Kunci: TIDAK pakai overflow-hidden di sini supaya scrollbar main bisa diklik
-    <div className="flex text-white" style={{ height: '100dvh' }}>
+    // Important: Do not use overflow-hidden here so the main scrollbar remains clickable.
+      <div className="flex text-white" style={{ height: '100dvh' }}>
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -120,7 +120,7 @@ export default function Dashboard() {
           <span className="text-sm font-medium text-white">Dashboard</span>
         </div>
 
-        {/* Hanya main yang overflow-y-auto — scrollbar bisa diklik normal */}
+        {/* Only the main content uses overflow-y-auto so the scrollbar works normally */}
         <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
           <Routes>
             <Route index element={<Navigate to="projects" replace />} />

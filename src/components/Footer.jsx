@@ -14,7 +14,7 @@ const Footer = () => {
             <span className="font-semibold bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
               Dasari Tirumala Ganesh
             </span>
-            . All Rights Reserved.
+            . All rights Reserved.
           </p>
 
           {/* Right Side */}

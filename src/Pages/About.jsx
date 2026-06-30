@@ -201,7 +201,7 @@ useEffect(() => {
       color: "from-[#6366f1] to-[#a855f7]",
       value: YearExperience,
       label: "Internship Experience",
-      description: "Continuous learning journey",
+      description: "Professional internship experience",
       animation: "fade-left",
     },
   ], [totalProjects, totalCertificates, YearExperience]);
@@ -242,8 +242,7 @@ useEffect(() => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-          Skilled in designing and developing modern web applications, interactive user interfaces, and scalable software solutions.
-          Driven by innovation and attention to detail, aiming to create seamless digital experiences that are both functional and aesthetically appealing   </p>
+          Skilled in designing and developing modern web applications, interactive user interfaces, and scalable software solutions. Passionate about innovation and attention to detail, with a focus on creating seamless, user-friendly digital experiences.   </p>
 
                {/* Quote Section */}
       <div 
@@ -277,7 +276,7 @@ useEffect(() => {
                 <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download Resume
               </button>
               </a>
-              <a href="#Portofolio" className="w-full lg:w-auto">
+              <a href="#Portfolio" className="w-full lg:w-auto">
               <button 
                 data-aos="fade-up"
                 data-aos-duration="1000"
@@ -292,7 +291,7 @@ useEffect(() => {
           <ProfileImage />
         </div>
 
-        <a href="#Portofolio">
+        <a href="#Portfolio">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 cursor-pointer">
             {statsData.map((stat) => (
               <StatCard key={stat.label} {...stat} />

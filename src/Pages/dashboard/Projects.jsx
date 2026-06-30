@@ -409,7 +409,7 @@ export default function Projects() {
   };
 
   const deleteProject = async (id) => {
-    if (!confirm("Delete this project?")) return;
+    if (!confirm("Are you sure you want to delete this project?")) return;
     await supabase.from("projects").delete().eq("id", id);
     fetchProjects();
   };

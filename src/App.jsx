@@ -13,7 +13,7 @@ import Login from "./Pages/Login";
 import Dashboard from "./Pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-const Portofolio = lazy(() => import("./Pages/Portofolio"));
+const Portfolio = lazy(() => import("./Pages/Portfolio"));
 const ContactPage = lazy(() => import("./Pages/Contact"));
 const ProjectDetails = lazy(() => import("./components/ProjectDetail"));
 const WelcomeScreen = lazy(() => import("./Pages/WelcomeScreen"));
@@ -37,7 +37,7 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
           <Home />
           <About />
           <Suspense fallback={<div className="h-20" />}>
-            <Portofolio />
+            <Portfolio />
             <ContactPage /> 
           </Suspense>
           <Footer />
@@ -67,7 +67,7 @@ function App() {
 </div>
       <BrowserRouter>
         <Routes>
-          {/* PUBLIC */}
+          {/* Public Routes */}
           <Route
             path="/"
             element={
@@ -80,10 +80,10 @@ function App() {
 
           <Route path="/project/:slug" element={<ProjectPageLayout />} />
 
-          {/* AUTH */}
+          {/* Authentication */}
           <Route path="/login" element={<Login />} />
 
-          {/* ADMIN (PROTECTED) */}
+          {/* Protected Admin Routes */}
           <Route
             path="/dashboard/*"
             element={
@@ -93,7 +93,7 @@ function App() {
             }
           />
 
-          {/* 404 */}
+          {/* Not Found Route */}
           <Route
             path="*"
             element={

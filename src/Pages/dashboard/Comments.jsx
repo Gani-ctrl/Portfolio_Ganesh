@@ -59,7 +59,7 @@ export default function Comments() {
   };
 
   const remove = async (id) => {
-    if (!confirm("Delete this comment?")) return;
+    if (!confirm("Are you sure you want to delete this comment?")) return;
     await supabase.from("portfolio_comments").delete().eq("id", id);
     fetchComments();
   };
